@@ -23,11 +23,15 @@ public struct LTEasing {
     }
     
     public static func easeInQuint(_ t: Float, _ b: Float, _ c: Float, _ d: Float = 1.0) -> Float {
-        return { (f: Float) in
-            c * pow(f, 5) + b
-        }(t / d)
-    }
-    
+            return {
+                var a = c * $0
+                a = a * $0
+                a = a * $0
+                a = a * $0
+                a = a * $0
+                return a + b
+            }(t / d)
+        }
     public static func easeOutBack(_ t: Float, _ b: Float, _ c: Float, _ d: Float = 1.0) -> Float {
         let s: Float = 2.70158
         let t2: Float = t / d - 1.0
